@@ -1,0 +1,72 @@
+
+@mixin flexMid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexSpace {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flexAround {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin flexArd {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*--------------Parametre---------------*/
+
+@mixin mediaQueries($key){
+	$size: map-get($breakpoints, $key);
+
+	@media screen and (max-width: $size) {
+		@content;
+	}
+}
+
+@mixin media($size){
+	@media screen and (min-width: $size) {
+		@content;
+	}
+}
+
+
+
+/*--------------After-Before---------------*/
+
+@mixin after{
+    &::after {
+        @content;
+    }
+}
+
+@mixin before{
+    &::before {
+        @content;
+    }
+}
+
+/*--------------border-raduis---------------*/
+@mixin border-radius($value){
+    border-radius: $value;
+    -webkit-border-radius: $value;
+    -moz-border-radius: $value;
+    -ms-border-radius: $value;
+    -o-border-radius: $value;
+}
+
+/*--------------box shadow---------------*/
+@mixin box-shadow ($top, $left, $blur, $color){
+    box-shadow: $top $left $blur $color;
+    @content;
+}
+
